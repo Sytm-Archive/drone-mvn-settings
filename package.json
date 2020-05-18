@@ -32,7 +32,7 @@
   "dependencies": {
     "drone-env-parser": "^1.2.0",
     "extend": "^3.0.2",
-    "squirrelly": "^7.9.2"
+    "squirrelly": "^8.0.1"
   },
   "husky": {
     "hooks": {
