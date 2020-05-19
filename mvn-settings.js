@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const extend = require("extend");
 
-Sqrl.autoEscaping(false);
+Sqrl.defaultConfig.autoEscape = false;
 
 function generateSettings() {
   if (process.env["UNIT_TEST"] !== "true") {
@@ -32,7 +32,7 @@ function generateSettings() {
     path.join(__dirname, "template", "settings.xml"),
     "utf8"
   );
-  let settingsFile = Sqrl.Render(settingsTemplate, settings);
+  let settingsFile = Sqrl.render(settingsTemplate, settings);
 
   let outputPath = "settings.xml";
   if (settings.custompath) {

@@ -1,26 +1,26 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                       https://maven.apache.org/xsd/settings-1.0.0.xsd">
-    {{if(options.localrepository !== undefined)}}
-    <localRepository>{{localrepository}}</localRepository>
+    {{@if(it.localrepository !== undefined)}}
+    <localRepository>{{it.localrepository}}</localRepository>
     {{/if}}
-    {{if(options.servers !== undefined)}}
+    {{@if(it.servers !== undefined)}}
     <servers>
-        {{each(options.servers)}}
+        {{@each(it.servers) => server}}
         <server>
-            {{foreach(@this)}}
-            <{{@key}}>{{@this}}</{{@key}}>
+            {{@foreach(server) => key, val}}
+            <{{key}}>{{val}}</{{key}}>
             {{/foreach}}
         </server>
         {{/each}}
     </servers>
     {{/if}}
-    {{if(options.mirrors !== undefined)}}
+    {{@if(it.mirrors !== undefined)}}
     <mirrors>
-        {{each(options.mirrors)}}
+        {{@each(it.mirrors) => server}}
         <mirror>
-            {{foreach(@this)}}
-            <{{@key}}>{{@this}}</{{@key}}>
+            {{@foreach(server) => key, val}}
+            <{{key}}>{{val}}</{{key}}>
             {{/foreach}}
         </mirror>
         {{/each}}

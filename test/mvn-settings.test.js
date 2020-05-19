@@ -57,7 +57,7 @@ describe("test/mvn-settings.test.js", function () {
       let Sqrl = require("squirrelly");
       assert.strictEqual(
         minify(
-          Sqrl.Render(
+          Sqrl.render(
             fs.readFileSync(
               path.join(__dirname, "..", "template", "settings.xml"),
               "utf8"
